@@ -1,4 +1,4 @@
-nclude<stdio.h>
+#include<stdio.h>
 #include<windows.h>
 #include<time.h>
 #include<string.h> // Added to fix implicit declaration warning for strcmp
@@ -208,9 +208,10 @@ void addStudent(void)
     fseek(fp,0,SEEK_END);
     fwrite(&a,sizeof(a),1,fp);
     fclose(fp);
+
     gotoxy(21,14);
     printf("The record is sucessfully saved");
-    a.studentNumber++;
+    // a.studentNumber++;
     gotoxy(21,15);
     printf("Save any more?(Y / N):");
     if(getch()=='n')
@@ -243,12 +244,15 @@ int getdata()
         mainmenu();
         return 0;
     }
+    // a.studentNumber=1;
     a.id=t;
     gotoxy(21,7);
-    printf("Student Name:");gotoxy(36,7);
+    printf("Student Name:");
+    gotoxy(36,7);
     scanf("%s",a.name);
     gotoxy(21,8);
-    printf("Email:");gotoxy(28,8);
+    printf("Email:");
+    gotoxy(28,8);
     scanf("%s",a.email);
     return 1;
 }
@@ -270,29 +274,30 @@ void edit (void){
 void view(void)    //function to view students
 {
     int i=0,j;
+    
     system("cls");
     gotoxy(1,1);
     printf("*********************************Student List*****************************");
     gotoxy(2,2);
-    printf(" DEPARTMENT     ID    STUDENT NAME     EMAIL");
+    printf(" DEPARTMENT     ID    STUDENT NAME          EMAIL");
     j=4;
     fp=fopen("another.dat","rb");
     while(fread(&a,sizeof(a),1,fp)==1)
     {
     gotoxy(3,j);
     printf("%s",a.dep);
-    gotoxy(20,j);
+    gotoxy(18,j);
     printf("%d",a.id);
     gotoxy(24,j);
     printf("%s",a.name);
-    gotoxy(36,j);
+    gotoxy(46,j);
     printf("%s",a.email);
     printf("\n\n");
     j++;
+i=i+a.studentNumber;
       }
-
       gotoxy(3,25);
-      printf("Total Students =%d",);
+      printf("Total Students =%d",i);
       fclose(fp);
       returnfunc();
 
