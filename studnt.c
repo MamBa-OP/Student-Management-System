@@ -1,3 +1,8 @@
+    // NAME: Rakibul Islam Zishan
+    // ID: 0242310005341321
+    // SECTION: 40[F-F2]
+
+
 #include<stdio.h>
 #include<windows.h>
 #include<time.h>
